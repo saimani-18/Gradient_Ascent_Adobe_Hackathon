@@ -1,0 +1,19 @@
+FROM --platform=linux/amd64 python:3.9-slim
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y \
+    gcc \
+    python3-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements-1b.txt .
+RUN pip install --no-cache-dir -r requirements-1b.txt
+
+# Pre-download models to include in image
+RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('all-MiniLM-L6-v2')"
+RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('paraphrase-xlm-r-multilingual-v1')"
+
+COPY . .
+
+CMD ["python", "persona_analysis.py"]
