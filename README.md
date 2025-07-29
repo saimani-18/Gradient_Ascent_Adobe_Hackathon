@@ -4,7 +4,7 @@ Here's a **single cohesive block** README.md with perfect flow and no section br
 # Adobe India Hackathon 2025 Submission  
 
 **Solution for Rounds 1A & 1B**  
-**Team Name**: [YOUR_TEAM_NAME]  
+**Team Name**: Gradient Ascent
 
 ## Introduction  
 Our solution delivers a complete pipeline for intelligent PDF processing with two core components:  
